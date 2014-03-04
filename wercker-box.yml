@@ -1,4 +1,4 @@
-name: exchangegroup
+name: box-yeoman
 version: 0.0.1
 inherits: wercker/ubuntu12.04-webessentials@0.0.12
 type: main
@@ -7,7 +7,7 @@ description: "node.js, compass, yeoman, grunt, bower, phantomjs, karma"
 packages:
   - nodejs@0.10.26
   - phantomjs@1.9.2
-  - compass@3.1.3
+  - compass@3.2.14
 keywords:
   - nodejs
   - compass
