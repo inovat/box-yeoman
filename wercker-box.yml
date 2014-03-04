@@ -1,0 +1,45 @@
+name: exchangegroup
+version: 0.0.16
+inherits: wercker/ubuntu12.04-webessentials@0.0.12
+type: main
+platform: ubuntu@12.04
+description: "node.js, yeoman, grunt, bower, phantomjs, karma"
+packages:
+  - nodejs@0.10.26
+  - phantomjs@1.9.7
+keywords:
+  - nodejs
+  - yeoman
+  - grunt
+  - bower
+  - phantomjs
+  - karma
+script: |
+  sudo apt-get update
+
+  # node.js
+  export NODE_VERSION=0.10.26
+  sudo apt-get install -y wget build-essential
+  cd $HOME
+  mkdir nodeinstall
+  cd nodeinstall
+  wget http://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION.tar.gz
+  tar xzf node-v$NODE_VERSION.tar.gz
+  cd node-v$NODE_VERSION
+  ./configure
+  make
+  sudo make install > /dev/null
+  cd $HOME
+  rm -fr nodeinstall
+  node -v
+
+  # phantomjs
+  export PHANTOM_VERSION=1.9.7
+  wget https://phantomjs.googlecode.com/files/phantomjs-$PHANTOM_VERSION-linux-x86_64.tar.bz2
+  tar xfj phantomjs-$PHANTOM_VERSION-linux-x86_64.tar.bz2
+  sudo cp phantomjs-$PHANTOM_VERSION-linux-x86_64/bin/phantomjs /usr/local/bin
+
+  # yeoman
+  sudo apt-get install -y libqt4-dev qt4-qmake
+  sudo npm install -g yo
+
