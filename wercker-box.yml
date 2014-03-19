@@ -1,5 +1,5 @@
 name: box-yeoman
-version: 0.0.2
+version: 0.0.3
 inherits: wercker/ubuntu12.04-nodejs0.10@1.0.6
 type: main
 platform: ubuntu@12.04
