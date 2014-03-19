@@ -14,7 +14,7 @@ Add bower to your package.json
 
 And add the next wercker.yml to your yeoman project:
 
-    box: olger/box-yeoman@0.0.2
+    box: olger/box-yeoman
     build:
         steps:
             - wercker/npm-install
