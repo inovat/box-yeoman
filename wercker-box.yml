@@ -1,6 +1,6 @@
 name: box-yeoman
-version: 0.0.1
-inherits: wercker/ubuntu12.04-webessentials@0.0.12
+version: 0.0.2
+inherits: wercker/ubuntu12.04-nodejs0.10@1.0.6
 type: main
 platform: ubuntu@12.04
 description: "node.js, compass, yeoman, grunt, bower, phantomjs, karma"
@@ -23,19 +23,9 @@ script: |
   sudo gem install compass
 
   # node.js
-  export NODE_VERSION=0.10.26
-  sudo apt-get install -y wget build-essential
-  cd $HOME
-  mkdir nodeinstall
-  cd nodeinstall
-  wget http://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION.tar.gz
-  tar xzf node-v$NODE_VERSION.tar.gz
-  cd node-v$NODE_VERSION
-  ./configure
-  make
-  sudo make install > /dev/null
-  cd $HOME
-  rm -fr nodeinstall
+  sudo npm cache clean -f
+  sudo npm install -g n
+  sudo n stable
   node -v
 
   # phantomjs
