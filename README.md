@@ -11,7 +11,7 @@ Add the next wercker.yml to your yeoman project:
     build:
         steps:
             - wercker/npm-install
-            - plasticine/bower-install
+            - olger/yeoman-bower-install
             - wercker/grunt:
                 tasks: build
 
